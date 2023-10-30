@@ -17,9 +17,23 @@ def convert_md_to_html(input_file):
     # Determine the output filename (replace .md with .html)
     output_file = input_file.replace(".md", ".html")
 
-    # Write the HTML content to the output file
+    # Add the HTML structure
+    html_structure = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{}
+</body>
+</html>
+""".format(html_content)
+
+    # Write the HTML structure to the output file
     with open(output_file, "w", encoding="utf-8") as file:
-        file.write(html_content)
+        file.write(html_structure)
 
     print("Conversion complete. HTML file saved as", output_file)
 
