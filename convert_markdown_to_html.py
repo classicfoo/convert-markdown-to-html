@@ -14,8 +14,8 @@ def convert_md_to_html(input_file):
         extensions=["markdown.extensions.tables", "markdown.extensions.fenced_code"],
     )
 
-    # Determine the output filename (replace .md with .html)
-    output_file = input_file.replace(".md", ".html")
+    # Determine the output filename (replace .txt with .html)
+    output_file = input_file.replace(".txt", ".html")
 
     # Add the HTML structure
     html_structure = """
@@ -53,10 +53,15 @@ def main():
         return
 
     # Check if the input file has a .md extension
-    if not args.input_file.lower().endswith(".md"):
-        print("Error: Input file is not a Markdown file (.md).")
+    #if not args.input_file.lower().endswith(".md"):
+    #    print("Error: Input file is not a Markdown file (.md).")
+    #    return
+    
+    # Check if the input file has a .md extension
+    if not args.input_file.lower().endswith(".txt"):
+        print("Error: Input file is not a Text file (.txt).")
         return
-
+    
     # Call the conversion function
     convert_md_to_html(args.input_file)
 
